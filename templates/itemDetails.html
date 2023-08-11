@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Item Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+  </head>
+  <body>
+    <div class="header">
+      <a class="header-link" href="/items">View items</a>
+      <a class="header-link" href="/">Create an item</a>
+    </div>
+    <br />
+    <h1>{{item["name"]}} Details</h1>
+
+    <div class="item-card">
+      <br>
+      <img src="/static/{{item['item_image']}}" alt="Item Image" class="item-image" />
+      <br>
+      <span class="item-description">{{item["description"]}}</span>
+      {% if average_stars > 0 %}
+        <br>
+        <div class="rating">
+          <span>Average rating: </span>
+          {% for i in range(average_stars) %}
+          <span class="fa fa-star checked"></span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <br>
+    <div class="review-cards">
+      {% for review in reviews %}
+        <div class="review-card">
+            <span class="review-stars">
+              {% set number = review["stars"] | int %}
+              {% for i in range(number) %}
+              <span class="fa fa-star checked"></span>
+              {% endfor %}</span>
+            <span class="review-desc">{{review["review_desc"]}}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <br>
+    <br>
+    <div class="form-container">
+      <form action="/review" method="POST" role="form">
+        <input type="hidden" name="item_id" id="item_id" value="{{item['_id']}}"/>
+        <label for="review_desc">Please input your review for this item</label>
+        <input type="text" name="review_desc" id="review_desc" />
+        <label for="image">Attach a picture of the item</label>
+        <input type="file" name="image" id="image" accept="image/" />
+        <label for="stars">How many stars would you rate this item?</label>
+        <div class="flex">
+          <input type="number" name="stars" id="stars" min="1" max="5" />
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+      <br>
+      <br>
+    </div>
+  </body>
+</html>
