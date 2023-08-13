@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../static/css/stylesheet.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     </head>
   <body>
     <div class="header">
@@ -10,22 +11,55 @@
     </div>
     <div class="formContainer">
         <h1>Create an item</h1>
-        <form action="/insert_item" method="POST" role="form">
-          <label for="name">Enter the item's name</label><br />
-          <input type="text" name="name" id="name" /><br />
-          <label for="description">Enter a description</label><br />
-          <input type="text" name="description" id="description" /><br />
-          <label for="item_image">Add a picture</label><br />
-          <input
-            type="file"
-            name="item_image"
-            id="item_image"
-            accept="image/"
-          />
-            <br/>
-            <br/>
+        <form action="/insert_item" method="POST" role="form" class="creationForm" id="itemCreationForm">
+            <div id="itemAttributes">
+              <label for="name">Item name</label>
+              <input type="text" name="name" id="name" />
+              <label for="description">Item description</label>
+              <input type="text" name="description" id="description"/>
+              <label for="item_image">Item image</label>
+              <input
+                type="file"
+                name="item_image"
+                id="item_image"
+                accept="image/"/>
+            </div>
+            <button type="button" onclick="addFormAttribute()">Add item attribute</button>
+            <button type="button" onclick="removeFormAttribute()">Remove item attribute</button>
           <input type="submit" value="Submit" />
         </form>
     </div>
+    <script>
+        $('#itemCreationForm').submit(function() {
+            // Get elements by class customLabel
+            let customLabels = document.getElementsByClassName("customLabel");
+
+            // Retrieve input from first input div
+            let customDesc = document.getElementsByClassName("newInput");
+            console.log(customDesc[0].value); //showed "customlabel"
+            customDesc[0].setAttribute("name", customLabels[0].value);
+        });
+        function addFormAttribute() {
+            let form = document.getElementById("itemAttributes");
+
+            let newLabelInput = document.createElement("input");
+            newLabelInput.setAttribute("type", "text");
+            newLabelInput.setAttribute("class", "customLabel");
+            newLabelInput.setAttribute("placeholder", "Attribute name");
+
+            let newValueInput = document.createElement("input");
+            newValueInput.setAttribute("type", "text");
+            newValueInput.setAttribute("class", "newInput");
+            newValueInput.setAttribute("placeholder", "Description");
+
+            form.appendChild(newLabelInput);
+            form.appendChild(newValueInput);
+        }
+        function removeFormAttribute() {
+            let form = document.getElementById("itemAttributes");
+            form.removeChild(form.lastElementChild);
+            form.removeChild(form.lastElementChild);
+        }
+    </script>
   </body>
 </html>
