@@ -33,11 +33,13 @@
         $('#itemCreationForm').submit(function() {
             // Get elements by class customLabel
             let customLabels = document.getElementsByClassName("customLabel");
-
             // Retrieve input from first input div
             let customDesc = document.getElementsByClassName("newInput");
-            console.log(customDesc[0].value); //showed "customlabel"
-            customDesc[0].setAttribute("name", customLabels[0].value);
+
+            for (let i = 0; i < customLabels.length; i++) {
+                customDesc[i].setAttribute("name", customLabels[i].value);
+            }
+            //customDesc[0].setAttribute("name", customLabels[0].value);
         });
         function addFormAttribute() {
             let form = document.getElementById("itemAttributes");
