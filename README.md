@@ -1,6 +1,5 @@
 # Python-Flask MongoDB Web Catalog
-This project aimed to demonstrate the flexibility of MongoDB databases for storing unstructured data, or for creating databases whose schema might change in the future.  
-We created a web catalog allowing a user to create a new object type and store it in the database. A user can then view all items, or hone in on a specific one,  view its details, and leave a review.
+This project aimed to demonstrate the flexibility of MongoDB databases for storing unstructured data, or for creating databases whose schema might change in the future. This web catalog allows users to create a new object type and store it in the database. A user can then view all items, or hone in on a specific one,  view its details, and leave a review.
 ## Authors
 * Chloe Lee-Hone
 * Parham Barati
