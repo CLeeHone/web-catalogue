@@ -7,7 +7,7 @@ This project aimed to demonstrate the flexibility of MongoDB databases for stori
 | Running | Program |
 |---------|---------|
 | ![image](https://github.com/CLeeHone/python-mongodb-web-catalogue/assets/67878819/5bb1f97b-32f4-48c4-8eea-228cfb4db124) | ![image](https://github.com/CLeeHone/python-mongodb-web-catalogue/assets/67878819/5b59e558-1939-41cd-ac6f-88bcfc44f724) | 
-| ![image](https://github.com/CLeeHone/python-mongodb-web-catalogue/assets/67878819/c2173943-6034-4e19-b495-4aa046c7dbe4) | ![image](https://github.com/CLeeHone/web-catalogue/assets/67878819/641dc631-8555-4db3-be4a-713b4c2be081) |
+| ![image](https://github.com/CLeeHone/python-mongodb-web-catalogue/assets/67878819/c2173943-6034-4e19-b495-4aa046c7dbe4) | ![image](https://github.com/CLeeHone/web-catalogue/assets/67878819/1a0f961a-2e06-4fd3-b5cf-9d094ce7e7d1) |
 ## Class Description
 * **Main.py**: The main entry point of the program. Uses the ApplicationLauncher class to start the Python-Flask program.  
 * **View.py**: Houses all the application’s views, or pages. Determines the redirections and events that occur following a user’s actions.  
